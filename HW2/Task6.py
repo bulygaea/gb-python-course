@@ -8,14 +8,11 @@ for i in range(n):
             }
     list_of_items.append((i + 1, item))
 
-info_of_items = {"название": [],
-                 "цена": [],
-                 "количество": [],
-                 "ед.": [],
+info_of_items = {"название": [i[1]["название"] for i in list_of_items],
+                 "цена": [i[1]["цена"] for i in list_of_items],
+                 "количество": [i[1]["количество"] for i in list_of_items],
+                 "ед.": [i[1]["ед."] for i in list_of_items],
                  }
-for i in list_of_items:
-    for key in info_of_items:
-        info_of_items[key].append(i[1][key])
 
 print(*list_of_items, sep="\n")
 print(*[f"'{key}': {value}" for key, value in info_of_items.items()], sep="\n")
