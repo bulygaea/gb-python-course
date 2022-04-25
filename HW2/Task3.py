@@ -4,7 +4,14 @@ seasons = {
     "summer": [6, 7, 8],
     "autumn": [9, 10, 11],
 }
-number_of_month = int(input("Type the result of the month: "))
+number_of_month = int(input("Type the number of the month: "))
 
 f = lambda key, value: key if number_of_month in value else ""
 print(*[f(key, value) for key, value in seasons.items()], sep="")
+
+# or
+
+for season, list_of_months in seasons.items():
+    if number_of_month in list_of_months:
+        print(season)
+        break
