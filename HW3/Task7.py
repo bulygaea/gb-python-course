@@ -20,7 +20,7 @@ def enlarger(line):
     new_line = ""
     for word in line.split():
         new_line += int_func(word) + " "
-    return new_line
+    return new_line.strip()
 
 
 input_line = input()
