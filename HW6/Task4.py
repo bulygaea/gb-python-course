@@ -17,23 +17,25 @@ class Car:
     def show_speed(self):
         return f'{self.__name} speed: {self.__speed}'
 
-    def get_speed(self):
+    @property
+    def speed(self):
         return self.__speed
 
-    def set_speed(self, speed):
+    @speed.setter
+    def speed(self, speed):
         self.__speed = speed
 
-    def get_color(self):
+    @property
+    def color(self):
         return self.__color
 
-    def set_color(self, color):
+    @color.setter
+    def color(self, color):
         self.__color = color
 
-    def get_name(self):
+    @property
+    def name(self):
         return self.__name
-
-    def set_name(self, name):
-        self.__name = name
 
     def is_police(self):
         return self.__is_police
@@ -41,7 +43,7 @@ class Car:
 
 class TownCar(Car):
     def show_speed(self):
-        return Car.show_speed(self) if self.get_speed() <= 60 else f'{self.get_name()} has exceeded the speed limit!'
+        return Car.show_speed(self) if self.speed <= 60 else f'{self.name} has exceeded the speed limit!'
 
 
 class SportCar(Car):
@@ -50,7 +52,7 @@ class SportCar(Car):
 
 class WorkCar(Car):
     def show_speed(self):
-        return Car.show_speed(self) if self.get_speed() <= 40 else f'{self.get_name()} has exceeded the speed limit!'
+        return Car.show_speed(self) if self.speed <= 40 else f'{self.name} has exceeded the speed limit!'
 
 
 class PoliceCar(Car):
@@ -65,6 +67,6 @@ police_car = PoliceCar(40, 'white', 'Skoda Octavia')
 work_car.go()
 work_car.turn('left')
 print(town_car.show_speed(), sport_car.show_speed(), work_car.show_speed(), police_car.show_speed(), sep='\n')
-town_car.set_speed(90)
-work_car.set_speed(60)
+town_car.speed = 90
+work_car.speed = 60
 print(town_car.show_speed(), work_car.show_speed(), sep='\n')

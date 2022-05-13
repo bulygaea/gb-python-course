@@ -5,23 +5,24 @@ class Stationery:
     def draw(self):
         print('Запуск отрисовки!')
 
-    def get_title(self):
+    @property
+    def title(self):
         return self.__title
 
 
 class Pen(Stationery):
     def draw(self):
-        print(f'{self.get_title()}: Запуск отрисовки ручкой')
+        print(f'{self.title}: Запуск отрисовки ручкой')
 
 
 class Pencil(Stationery):
     def draw(self):
-        print(f'{self.get_title()}: Запуск отрисовки карандашом!')
+        print(f'{self.title}: Запуск отрисовки карандашом!')
 
 
 class Handle(Stationery):
     def draw(self):
-        print(f'{self.get_title()}: Запуск отрисовки маркером!')
+        print(f'{self.title}: Запуск отрисовки маркером!')
 
 
 stationery = Stationery('Stationery')

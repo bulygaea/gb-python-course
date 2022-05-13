@@ -5,32 +5,38 @@ class Worker:
         self.__position = position
         self._income = dict(wage=wage, bonus=bonus)
 
-    def get_name(self):
+    @property
+    def name(self):
         return self.__name
 
-    def get_surname(self):
+    @property
+    def surname(self):
         return self.__surname
 
-    def get_position(self):
+    @property
+    def position(self):
         return self.__position
 
-    def get_income(self):
+    @property
+    def income(self):
         return self._income
 
-    def get_wage_income(self):
+    @property
+    def wage_income(self):
         return self._income['wage']
 
-    def get_bonus_income(self):
+    @property
+    def bonus_income(self):
         return self._income['bonus']
 
 
 class Position(Worker):
     def get_full_name(self):
-        return f'Name: {self.get_name()}\n' \
-               f'Surname: {self.get_surname()}'
+        return f'Name: {self.name}\n' \
+               f'Surname: {self.surname}'
 
     def get_total_income(self):
-        return f"Total income: {self.get_wage_income() + self.get_bonus_income()}"
+        return f"Total income: {self.wage_income + self.bonus_income}"
 
 
 first_worker = Position('Joshua', 'Brown', 'teacher', 50000, 20000)
