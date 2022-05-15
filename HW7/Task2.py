@@ -1,10 +1,6 @@
 from abc import ABC, abstractmethod
 
 
-def total_fabric_consumption():
-    return Clothes._total_fabric_consumption
-
-
 class Clothes(ABC):
     _total_fabric_consumption = 0
 
@@ -14,6 +10,10 @@ class Clothes(ABC):
     @abstractmethod
     def fabric_consumption(self):
         raise NotImplementedError(self.__class__.__name__)
+
+    @staticmethod
+    def total_fabric_consumption():
+        return Clothes._total_fabric_consumption
 
 
 class Coat(Clothes):
@@ -50,4 +50,4 @@ suit = Suit('suit', 140)
 coat = Coat('coat', 38)
 print(suit.fabric_consumption())
 print(coat.fabric_consumption())
-print(total_fabric_consumption())
+print(Clothes.total_fabric_consumption())
