@@ -11,16 +11,16 @@ class TrafficLight:
 
     def __init__(self, surface):
         self.__color = TrafficLight.__RED
-        self.i = 0
+        self.__i = 0
         self.__time_to_start_color = time.time()
-        self.surface = surface
+        self.__surface = surface
 
     def running(self):
-        if time.time() - self.__time_to_start_color >= TrafficLight.__TIME_TO_COLOR[self.i]:
-            self.__color = TrafficLight.__COLORS[self.i + 1 if self.i < 3 else 0]
+        if time.time() - self.__time_to_start_color >= TrafficLight.__TIME_TO_COLOR[self.__i]:
+            self.__color = TrafficLight.__COLORS[self.__i + 1 if self.__i < 3 else 0]
             self.__time_to_start_color = time.time()
-            self.i = self.i + 1 if self.i < 3 else 0
-        pygame.draw.circle(self.surface, self.__color, (150, 90), 50)
+            self.__i = self.__i + 1 if self.__i < 3 else 0
+        pygame.draw.circle(self.__surface, self.__color, (150, 90), 50)
 
 
 WIDTH = 300
