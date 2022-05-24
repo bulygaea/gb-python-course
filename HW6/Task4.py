@@ -57,7 +57,7 @@ class WorkCar(Car):
 
 class PoliceCar(Car):
     def __init__(self, speed, color, name):
-        super(PoliceCar, self).__init__(speed, color, name, True)
+        super().__init__(speed, color, name, True)
 
 
 town_car = TownCar(10, 'black', 'Wolkswagen Polo')
