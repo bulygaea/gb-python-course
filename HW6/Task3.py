@@ -31,17 +31,19 @@ class Worker:
 
 
 class Position(Worker):
-    def get_full_name(self):
+    @property
+    def full_name(self):
         return f'Name: {self.name}\n' \
                f'Surname: {self.surname}'
 
-    def get_total_income(self):
-        return f"Total income: {self.wage_income + self.bonus_income}"
+    @property
+    def total_income(self):
+        return f'Total income: {self.wage_income + self.bonus_income}'
 
 
 first_worker = Position('Joshua', 'Brown', 'teacher', 50000, 20000)
 second_worker = Position('Emmanuel', 'Zvavamve', 'translator', 100000, 30000)
-print(first_worker.get_full_name())
-print(first_worker.get_total_income())
-print(second_worker.get_full_name())
-print(second_worker.get_total_income())
+print(first_worker.full_name)
+print(first_worker.total_income)
+print(second_worker.full_name)
+print(second_worker.total_income)
