@@ -24,6 +24,7 @@ class Storage:
     def transfer(cls, company, count):
         cls = cls.lower()
         company = company.lower()
+
         if not isinstance(count, int):
             raise ValueError()
         if cls in Storage.__classes_office_equipments.keys():
@@ -34,9 +35,11 @@ class Storage:
         if Storage.__office_equipments['count_in_storage'][index] < count:
             raise OverflowError
         Storage.__office_equipments['count_in_storage'][index] -= count
-        if company not in Storage.__office_equipments['company'][index]['company']:
+
+        if company not in Storage.__office_equipments['transfer_company'][index]['company']:
             Storage.__office_equipments['transfer_company'][index]['company'].append(company)
             Storage.__office_equipments['transfer_company'][index]['count'].append(0)
+
         company_index = Storage.__office_equipments['transfer_company'][index]['company'].index(company)
         Storage.__office_equipments['transfer_company'][index]['count'][company_index] += count
 
@@ -56,6 +59,8 @@ class OfficeEquipment(ABC):
     __paper_sizes = dict(A3=__A3, A4=__A4, A5=__A5)
 
     def __init__(self, paper_size, color):
+        paper_size = paper_size.upper()
+        color = color.lower()
         if paper_size not in OfficeEquipment.__paper_sizes.keys() or color not in OfficeEquipment.__colors.keys():
             raise ValueError()
         self._paper_size = paper_size
