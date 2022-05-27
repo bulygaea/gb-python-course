@@ -38,7 +38,7 @@ class Storage:
             Storage.__office_equipments['transfer_company'][index]['company'].append(company)
             Storage.__office_equipments['transfer_company'][index]['count'].append(0)
         company_index = Storage.__office_equipments['transfer_company'][index]['company'].index(company)
-        Storage.__office_equipments['transfer_company'][index]['count'][company_index] += 1
+        Storage.__office_equipments['transfer_company'][index]['count'][company_index] += count
 
     @staticmethod
     def office_equipments():
