@@ -73,9 +73,10 @@ class Printer(OfficeEquipment):
     __types = dict(laser=__LASER, inkjet=__INKJET)
 
     def __init__(self, paper_size, color, type_of_printer):
+        type_of_printer = type_of_printer.lower()
         super(Printer, self).__init__(paper_size, color)
         if type_of_printer not in Printer.__types.keys():
-            raise ValueError
+            raise ValueError()
         self.__type = Printer.__types.get(type_of_printer)
 
 
@@ -85,14 +86,24 @@ class Scanner(OfficeEquipment):
     __types = dict(projection=__PROJECTION, sheet_feed=__SHEET_FEED)
 
     def __init__(self, paper_size, color, type_of_scanner):
+        type_of_scanner = type_of_scanner.lower()
         super(Scanner, self).__init__(paper_size, color)
         if type_of_scanner not in Scanner.__types.keys():
-            raise ValueError
+            raise ValueError()
         self.__type = Scanner.__types.get(type_of_scanner)
 
 
 class Xerox(OfficeEquipment):
-    pass
+    __ANALOG = 0
+    __DIGITAL = 1
+    __types = dict(analog=__ANALOG, digital=__DIGITAL)
+
+    def __init__(self, paper_size, color, type_of_xerox):
+        type_of_xerox = type_of_xerox.lower()
+        super(Xerox, self).__init__(paper_size, color)
+        if type_of_xerox not in Xerox.__types.keys():
+            raise ValueError()
+        self.__type = Xerox.__types.get(type_of_xerox)
 
 
 printers = [Printer('A4', 'color', 'laser'), Printer('A4', 'monochrome', 'laser'), Printer('A4', 'color', 'inkjet')]
