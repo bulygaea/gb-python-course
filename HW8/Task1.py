@@ -1,10 +1,10 @@
 class Date:
 
     def __init__(self, date):
-        self.__date = Date.__date_to_int(date)
+        self.__date = Date.date_to_int(date)
 
     @classmethod
-    def __date_to_int(cls, string_date):
+    def date_to_int(cls, string_date):
         try:
             result_date = tuple(map(int, string_date.split('-')))
             if Date.__is_date_valid(result_date):
@@ -26,3 +26,4 @@ class Date:
 
 new_date = Date(input("Type a date (for ex. 01-01-1970): "))
 print(new_date)
+print(Date.date_to_int('01-01-1970'))
